@@ -18,7 +18,7 @@ export const sendValidationEmail = async (to, url) => {
 
   // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: '"Neoland Bootcamp " <neoland@faceb00k.com>', // sender address
+    from: '"Neoland Bootcamp " ', // sender address
     to, // list of receivers
     subject: "Valida tu email ✔", // Subject line
     html: `       
@@ -299,3 +299,37 @@ export const sendValidationEmail = async (to, url) => {
   console.log("Message sent: %s", info.messageId);
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 }
+
+
+
+
+
+
+// import { MongoClient } from 'mongodb';
+// import { app } from "./app.js";
+
+
+// const URI = 'mongodb+srv://luis1gonzalez:morrocoy@finalproject.wffmz.mongodb.net/?retryWrites=true&w=majority'
+// export const client = new MongoClient(URI);
+
+
+// async function start(){
+//     try{
+//         await client.connect(); // 1. conectamos el cliente
+//         app.locals.ddbbClient = client; // 2. lo guardamos en el locals para que se acceda desde las rutas
+//         app.listen(3001, () => console.log('Servidor del index levantado en el 3001'));
+//     }catch(err){
+//         console.err('Error en el servidor: ', err);
+//     }
+// }
+
+
+// async function stop(){
+//     console.log('Estás cerrando el servidor');
+//     await client.close(); // cerramos al conexión con la BBDD
+// }
+
+// process.on('SIGINT', stop); // eventos del SO cuando hacemos ctrl+c
+// process.on('SIGTERM', stop);
+
+// start(); // lamamos a la función start que inicia todo (BBDD y Server de express)

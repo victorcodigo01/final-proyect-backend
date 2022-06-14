@@ -19,7 +19,6 @@ export const generateValidationToken = () => {
 
 
 
-
 // import crypto from 'crypto';
 
 

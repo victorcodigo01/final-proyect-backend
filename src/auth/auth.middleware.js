@@ -8,7 +8,7 @@ import { jwt_secret } from './auth.secrets.js';
  * Si no es correcto, devolvemos un 400 (Bad Request)
  */
 export const validateUser = (req, res, next) => {
-    if (EmailValidator.validate(req.body.email) && req.body.age >= 18) {
+    if (EmailValidator.validate(req.body.email)) {
         next();
     } else {
         res.status(400).json({ error: 'algun campo que has introducido no es válido' });

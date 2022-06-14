@@ -2,9 +2,8 @@ import { MongoClient } from 'mongodb';
 import { app } from "./app.js";
 
 
-const URI = 'mongodb+srv://victormartin427:R-idwUeCrUQH93w@cluster0.l3zihpz.mongodb.net/?retryWrites=true&w=majority';
-
- export const client = new MongoClient(URI);
+const URI = 'mongodb+srv://victor427:R-idwUeCrUQH93w@cluster0.exmfrq9.mongodb.net/?retryWrites=true&w=majority';
+export const client = new MongoClient(URI);
 
 
 async function start(){
@@ -27,6 +26,9 @@ process.on('SIGINT', stop); // eventos del SO cuando hacemos ctrl+c
 process.on('SIGTERM', stop);
 
 start(); // lamamos a la función start que inicia todo (BBDD y Server de express)
+
+
+
 
 
 // import { MongoClient } from 'mongodb';
