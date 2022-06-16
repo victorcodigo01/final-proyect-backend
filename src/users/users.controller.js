@@ -20,9 +20,7 @@ export const createUser = async (user) => {
         return await users.insertOne(user);
     } catch (err) {
         console.error(err);
-    } finally {
-        client.close();
-    }
+    } 
 }
 // devuelve el usuario sin tener en cuenta el status o null si no existe
 export const getUserByEmailNoStatus = async (email) => {
@@ -33,9 +31,7 @@ export const getUserByEmailNoStatus = async (email) => {
         return await users.findOne({ email });
     } catch (err) {
         console.error(err);
-    } finally {
-        client.close();
-    }
+    } 
 }
 // actualiza el usuario cambiando su estaso a success
 export const validateUser = async (email) => {

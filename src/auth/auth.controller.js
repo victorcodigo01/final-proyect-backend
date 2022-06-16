@@ -58,12 +58,14 @@ export const registerCtrl = async (req, res) => {
 
 export const validateEmailCtrl = async (req, res) => {
     const { token } = req.query; // paso 1
+    console.log('holaa');
 
     const db = req.app.locals.ddbbClient.db(DATABASE_NAME);
     const tokens = db.collection(COLLECTION_NAME);
     const tokenInfo = await tokens.findOne({token}) // paso 2
     if (tokenInfo !== null) {
         // existe token
+        console.log('holaa');
         await tokens.deleteOne({token}); // paso 3
 
         const users = db.collection(COLLECTION_USERS);
@@ -111,8 +113,6 @@ export const createValidationToken = async (token, userName) => {
         });
     }catch(err){
         console.error(err);
-    }finally{
-        client.close();
     }
 }
 // devuelve el token o null si no existe
