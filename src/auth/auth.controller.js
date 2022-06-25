@@ -101,7 +101,7 @@ export const loginCtrl = async (req, res) => {
         res.sendStatus(404);
     }
 }
-//FUNCIONES DEL MODEL.
+//FUNCIONES DEL TOKEN.
 export const createValidationToken = async (token, userName) => {
     try{
         await client.connect();

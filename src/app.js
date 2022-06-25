@@ -3,6 +3,12 @@ import cors from 'cors';
 import authRouter from './auth/auth.router.js';
 import usersRouter from './users/users.router.js';
 import { validateAuth } from './auth/auth.middleware.js';
+import EmotionsManage from './emotions-manage/emotions-m.router.js';
+import Emotions from './emotions/emotions.router.js'
+import Pomodoro from './pomodoro-technique/pomodoro.router.js'
+
+
+
 
 
 export const app = express();
@@ -16,6 +22,10 @@ app.use(express.json()); // permitimos que el app procese JSON en el body de la 
 app.get('/pum', (_req,res) => res.send('pim'));
 app.use('/auth', authRouter); // declaramos el router de autenticación
 app.use('/users', validateAuth, usersRouter); //el middleware es lo que está en medio obviamente jej
+
+app.use('/emotions-manage',EmotionsManage);
+app.use('/emotions',Emotions);
+app.use('/pomodoro-technique',Pomodoro);
 
 
 app.get('/demo',(req,res,next) => {

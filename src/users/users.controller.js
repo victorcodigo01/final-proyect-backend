@@ -87,6 +87,20 @@ export const retrieveUserInfoByEmail = async (email) => {
 }
 
 
+export const deleteUserById = async (req, res) => {
+    const { id } = req.params;
+    const db = req.app.locals.ddbbClient.db(DATABASE_NAME); 
+    const col = db.collection(COLLECTION_NAME); 
+    if(id.length === 12 || id.length === 24){
+        const o_id = ObjectId(id)
+        const r = await col.deleteOne({_id : o_id}); 
+            res.status(200).json(r) 
+    }
+    else {
+        res.status(400).json({ error: 'Invalid ID' });
+    }
+}
+
 
 
 
