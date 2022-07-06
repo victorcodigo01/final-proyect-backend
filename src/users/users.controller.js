@@ -1,5 +1,7 @@
-
+// 
 import { client } from "../index.js";
+import { ObjectId } from "mongodb";
+
 const DATABASE_NAME = 'final-project';
 const COLLECTION_NAME = 'users';
 export const getUserInfo = async (req, res) => {
@@ -48,9 +50,7 @@ export const validateUser = async (email) => {
         return await users.updateOne({ email }, updateDoc);
     } catch (err) {
         console.error(err);
-    } finally {
-        client.close();
-    }
+    } 
 }
 // devuelve el usuario de BBDDD que esté en estado succes y además coincida
 // con el email y con password que me mandan. 
@@ -67,9 +67,7 @@ export const retrieveSuccessUserByEmailAndPassword = async (email, password) => 
         return await users.findOne(query);
     } catch (err) {
         console.error(err);
-    } finally {
-        client.close();
-    }
+    } 
 }
 export const retrieveUserInfoByEmail = async (email) => {
     try {
@@ -81,23 +79,22 @@ export const retrieveUserInfoByEmail = async (email) => {
         return await users.findOne(query, options);
     } catch (err) {
         console.error(err);
-    } finally {
-        client.close();
-    }
+    } 
 }
 
 
-export const deleteUserById = async (req, res) => {
-    const { id } = req.params;
+export const deleteUser = async (req, res) => {
+    const email = req.email;
+    console.log(email)
     const db = req.app.locals.ddbbClient.db(DATABASE_NAME); 
     const col = db.collection(COLLECTION_NAME); 
-    if(id.length === 12 || id.length === 24){
-        const o_id = ObjectId(id)
-        const r = await col.deleteOne({_id : o_id}); 
+    if(email){
+
+        const r = await col.deleteOne({email}); 
             res.status(200).json(r) 
     }
     else {
-        res.status(400).json({ error: 'Invalid ID' });
+        res.status(400).json({ error: 'Invalid email' });
     }
 }
 

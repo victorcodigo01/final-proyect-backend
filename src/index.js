@@ -1,5 +1,9 @@
-import { MongoClient } from 'mongodb';
+ 
 import { app } from "./app.js";
+import 'dotenv/config';
+import { MongoClient } from "mongodb";
+
+
 
 
 const URI = 'mongodb+srv://victor427:R-idwUeCrUQH93w@cluster0.exmfrq9.mongodb.net/?retryWrites=true&w=majority';
@@ -12,13 +16,13 @@ async function start(){
         app.locals.ddbbClient = client; // 2. lo guardamos en el locals para que se acceda desde las rutas
         app.listen(3001, () => console.log('Servidor del index levantado en el 3001'));
     }catch(err){
-        console.err('Error en el servidor: ', err);
+        console.log('Error en el servidor:');
     }
 }
 
 
 async function stop(){
-    console.log('Estás cerrando el servidor');
+    console.error('Estás cerrando el servidor');
     await client.close(); // cerramos al conexión con la BBDD
 }
 

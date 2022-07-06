@@ -1,10 +1,15 @@
 {
   "name": "final-proyect-backend",
   "type": "module",
+  "engines": {
+    "node":"16.x"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch coverage"
   },
   "repository": {
@@ -30,5 +35,8 @@
     "nodemon": "^2.0.16",
     "supertest": "^6.2.3",
     "uuid": "^8.3.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
   }
 }

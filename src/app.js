@@ -8,11 +8,12 @@ import Emotions from './emotions/emotions.router.js'
 import Pomodoro from './pomodoro-technique/pomodoro.router.js'
 
 
-
-
-
 export const app = express();
-// const port= 3000;
+
+
+app.get('/hello', (_req,res) => {
+    res.send(`Hello world desde express: ${process.env.DEMO_MY_VAR}`)
+})
 
 //EL USE SIGNIFICA QUE ES PARA TODA LA APP
 app.use(cors());
@@ -27,6 +28,9 @@ app.use('/emotions-manage',EmotionsManage);
 app.use('/emotions',Emotions);
 app.use('/pomodoro-technique',Pomodoro);
 
+app.use('/static/', express.static('../assets'))
+
+
 
 app.get('/demo',(req,res,next) => {
     const cumpleValidacion = true;
@@ -37,7 +41,7 @@ app.get('/demo',(req,res,next) => {
         next(); // sirve para pasar el control al siguiente controlador registrado
     }
     
-}, (req, res) => {
+}, (_req, res) => {
     res.send('Hello demo');
 })
 

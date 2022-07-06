@@ -1,9 +1,25 @@
 
 import express from 'express';
 import { getUserInfo } from './users.controller.js';
+import { deleteUser } from './users.controller.js';
+
+
 const router = express.Router();
 router.route('/')
     .get(getUserInfo)
+
+
+router.route('/delete')
+    .delete(deleteUser)// Borrar un usuario
+
+
+
+// router.route('/:id')
+// .get(getStudentByIdCtrl) // Obtener UN estudiante con un ID concreto (R)
+// .patch(() => {}) // Actualizar UN estudiante (U)
+// .put(() => {}) // Actualizar UN estudiante (U)
+// .delete(() => {}) // Borrar UN estudiante (D)
+
 export default router;
 
 
