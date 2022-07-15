@@ -1,13 +1,10 @@
  
 import { app } from "./app.js";
-import 'dotenv/config';
 import { MongoClient } from "mongodb";
+import 'dotenv/config';
 
-
-
-
-const URI = 'mongodb+srv://victor427:R-idwUeCrUQH93w@cluster0.exmfrq9.mongodb.net/?retryWrites=true&w=majority';
-export const client = new MongoClient(URI);
+const MONGO_URI = 'mongodb+srv://victor427:R-idwUeCrUQH93w@cluster0.exmfrq9.mongodb.net/?retryWrites=true&w=majority';
+export const client = new MongoClient(MONGO_URI);
 
 
 async function start(){
