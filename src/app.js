@@ -12,7 +12,7 @@ export const app = express();
 
 
 app.get('/hello', (_req,res) => {
-    res.send(`Hello world desde express: ${process.env.DEMO_MY_VAR}`)
+    res.send(`Hello world desde express: ${process.env.DB_USER}`)
 })
 
 //EL USE SIGNIFICA QUE ES PARA TODA LA APP
