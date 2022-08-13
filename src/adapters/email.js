@@ -4,17 +4,20 @@ import nodemailer from 'nodemailer';
 export const sendValidationEmail = async (to, url) => {
     // Only needed if you don't have a real mail account for testing
   const testAccount = await nodemailer.createTestAccount();
-  // create reusable transporter object using the default SMTP transport
+  // create reusable transporter object using the default SMTP transport (protocol: SMTP, host: 'smtp.ethereal.email)
   const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
+    host: 'smtp.gmail.com',
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
+      user: 'victormartin417@gmail.com', // generated ethereal user
+      pass: 'sxilumfvzaphtxpz', // generated ethereal / o gmail password
     },
   });
 
+   transporter.verify().then(() => {
+    console.log('Server is ready for send messages');
+  });
 
   // send mail with defined transport object
   const info = await transporter.sendMail({
