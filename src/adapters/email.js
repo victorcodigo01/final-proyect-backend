@@ -1,22 +1,21 @@
-import nodemailer from 'nodemailer';
-
+import nodemailer from "nodemailer";
 
 export const sendValidationEmail = async (to, url) => {
-    // Only needed if you don't have a real mail account for testing
+  // Only needed if you don't have a real mail account for testing
   const testAccount = await nodemailer.createTestAccount();
   // create reusable transporter object using the default SMTP transport (protocol: SMTP, host: 'smtp.ethereal.email)
   const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: "smtp.gmail.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: 'victormartin417@gmail.com', // generated ethereal user
-      pass: 'sxilumfvzaphtxpz', // generated ethereal / o gmail password
+      user: "victormartin417@gmail.com", // generated ethereal user
+      pass: "sxilumfvzaphtxpz", // generated ethereal / o gmail password
     },
   });
 
-   transporter.verify().then(() => {
-    console.log('Server is ready for send messages');
+  transporter.verify().then(() => {
+    console.log("Server is ready for send messages");
   });
 
   // send mail with defined transport object
@@ -301,20 +300,13 @@ export const sendValidationEmail = async (to, url) => {
 
   console.log("Message sent: %s", info.messageId);
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-}
-
-
-
-
-
+};
 
 // import { MongoClient } from 'mongodb';
 // import { app } from "./app.js";
 
-
 // const URI = 'mongodb+srv://luis1gonzalez:morrocoy@finalproject.wffmz.mongodb.net/?retryWrites=true&w=majority'
 // export const client = new MongoClient(URI);
-
 
 // async function start(){
 //     try{
@@ -325,7 +317,6 @@ export const sendValidationEmail = async (to, url) => {
 //         console.err('Error en el servidor: ', err);
 //     }
 // }
-
 
 // async function stop(){
 //     console.log('Estás cerrando el servidor');

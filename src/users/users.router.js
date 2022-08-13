@@ -1,18 +1,11 @@
-
-import express from 'express';
-import { getUserInfo } from './users.controller.js';
-import { deleteUser } from './users.controller.js';
-
+import express from "express";
+import { getUserInfo } from "./users.controller.js";
+import { deleteUser } from "./users.controller.js";
 
 const router = express.Router();
-router.route('/')
-    .get(getUserInfo)
+router.route("/").get(getUserInfo);
 
-
-router.route('/delete')
-    .delete(deleteUser)// Borrar un usuario
-
-
+router.route("/delete").delete(deleteUser); // Borrar un usuario
 
 // router.route('/:id')
 // .get(getStudentByIdCtrl) // Obtener UN estudiante con un ID concreto (R)
@@ -21,7 +14,6 @@ router.route('/delete')
 // .delete(() => {}) // Borrar UN estudiante (D)
 
 export default router;
-
 
 // import express from 'express';
 // import { getAllUsersCtrl , createUsersCtrl, getUserByIdCtrl, updateUserByIdCtrl, deleteUserById  } from './users.controller.js';
@@ -39,6 +31,5 @@ export default router;
 //     .patch(updateUserByIdCtrl) // Actualizar UN estudiante (U)
 //     .put(() => {}) // Actualizar UN estudiante (U)
 //     .delete(deleteUserById) // Borrar UN estudiante (D)
-
 
 // export default router; // y lo exporto para que lo use el app u otro router
