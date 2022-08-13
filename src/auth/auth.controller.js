@@ -5,6 +5,7 @@ import { jwt_secret } from './auth.secrets.js';
 import { client } from "../index.js";
 // importo la librería JWT para generar un token JWT
 import jwt from 'jsonwebtoken';
+
 const DATABASE_NAME = 'final-project';
 const COLLECTION_NAME = 'validate-token';
 const COLLECTION_USERS = 'users';
@@ -82,7 +83,26 @@ export const validateEmailCtrl = async (req, res) => {
         res.sendStatus(404);
     }
 }
-/**
+
+// TODO send email
+// try {
+// // send mail with defined transport object
+// await transporter.sendMail({
+//     from: '"Forgot password " <foo@example.com>', // sender address
+//     to: user.username, // list of receivers
+//     subject: "Forgot password ✔", // Subject line
+//     // text: "Hello world?", // plain text body
+//     html: `<b>Please click in the following link, or paste this into your browser to complete the process </b>, // html body
+//      <a href="${veryficationLink}">${veryficationLink}</a>` // html body
+// });
+// }catch (err){
+//     emailStatus = error;
+//     return res.status(400).json({message: 'Something went wrong'});
+
+// }
+
+
+    /**
  * 1. verificar que existe el usuario con su pass y ademas tiene un estado
  *    SUCCESS
  *  a. encriptar la pass del body
@@ -101,6 +121,9 @@ export const loginCtrl = async (req, res) => {
         res.sendStatus(404);
     }
 }
+
+
+
 //FUNCIONES DEL TOKEN.
 export const createValidationToken = async (token, userName) => {
     try{
