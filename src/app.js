@@ -25,7 +25,7 @@ app.use("/emotions-manage", EmotionsManage);
 app.use("/emotions", Emotions);
 app.use("/pomodoro-technique", Pomodoro);
 
-app.use("/static/", express.static("../assets"));
+app.use("/static/", express.static("/assets"));
 
 app.get(
   "/demo",
