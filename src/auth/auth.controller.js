@@ -14,6 +14,7 @@ import jwt from "jsonwebtoken";
 const DATABASE_NAME = "final-project";
 const COLLECTION_NAME = "validate-token";
 const COLLECTION_USERS = "users";
+const COLLECTION_EMOTIONS_MANAGE = "emotions-manage";
 /**
  * 1. Van a venir los datos de registro en el body. Habrá que validar el body
  * 2. Generar la entidad usuario y guardarla en BBDD

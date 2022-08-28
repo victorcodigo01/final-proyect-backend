@@ -6,6 +6,7 @@ import { validateAuth } from "./auth/auth.middleware.js";
 import EmotionsManage from "./emotions-manage/emotions-m.router.js";
 import Emotions from "./emotions/emotions.router.js";
 import Pomodoro from "./pomodoro-technique/pomodoro.router.js";
+// import ImagesManagement from "./images-management/images-m.router.js";
 
 export const app = express();
 
@@ -26,6 +27,7 @@ app.use("/emotions", Emotions);
 app.use("/pomodoro-technique", Pomodoro);
 
 app.use("/static/", express.static("assets"));
+// app.use("/images", ImagesManagement);
 
 app.get(
   "/demo",
