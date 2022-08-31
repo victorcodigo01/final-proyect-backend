@@ -1,14 +1,11 @@
 import express from "express";
-import {
-  createEmotionManage,
-  getEmotionsManageInfo,
-} from "./emotions-m.controller.js";
+import { downLoadIImage, getImage, postImage } from "./images-m.controller.js";
 
 const router = express.Router();
 
-router.route("/").get(getEmotionsManageInfo);
-
-router.route("/create").post(createEmotionManage);
+router.route("/").post(postImage);
+router.route("/:name").get(getImage);
+router.route("/download").post(downLoadIImage);
 // router.route("/create").post(postEmotionsManageCard);
 
 export default router;

@@ -6,7 +6,8 @@ import { validateAuth } from "./auth/auth.middleware.js";
 import EmotionsManage from "./emotions-manage/emotions-m.router.js";
 import Emotions from "./emotions/emotions.router.js";
 import Pomodoro from "./pomodoro-technique/pomodoro.router.js";
-// import ImagesManagement from "./images-management/images-m.router.js";
+import MailManagement from "./mail-management/mail.m-router.js";
+import ImagesManagemnt from "./images-management/images-m.routes.js";
 
 export const app = express();
 
@@ -25,6 +26,8 @@ app.use("/users", validateAuth, usersRouter); //el middleware es lo que está en
 app.use("/emotions-manage", EmotionsManage);
 app.use("/emotions", Emotions);
 app.use("/pomodoro-technique", Pomodoro);
+app.use("/mail", MailManagement);
+app.use("/images", ImagesManagemnt);
 
 app.use("/static/", express.static("assets"));
 // app.use("/images", ImagesManagement);

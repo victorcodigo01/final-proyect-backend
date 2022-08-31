@@ -9,7 +9,7 @@ export const sendValidationEmail = async (to, url) => {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "victormartin417@gmail.com", // generated ethereal user
+      user: "victormartin427@gmail.com", // generated ethereal user
       pass: "sxilumfvzaphtxpz", // generated ethereal / o gmail password
     },
   });
