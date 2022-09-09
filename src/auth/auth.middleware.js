@@ -7,7 +7,7 @@ import { jwt_secret } from "./auth.secrets.js";
  * Si no es correcto, devolvemos un 400 (Bad Request)
  */
 export const validateUser = (req, res, next) => {
-  if (EmailValidator.validate(req.body.email)) {
+  if (EmailValidator.validate(req.body.user.email)) {
     next();
   } else {
     res

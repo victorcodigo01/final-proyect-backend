@@ -23,7 +23,7 @@ const COLLECTION_EMOTIONS_MANAGE = "emotions-manage";
  */
 export const registerCtrl = async (req, res) => {
   try {
-    console.log("mensaje de prueba");
+    console.log("BODY DE MI PETICION");
     console.log(req.body);
     const user = await getUserByEmailNoStatus(req.body.user.email);
     if (user === null) {
@@ -70,14 +70,12 @@ export const registerCtrl = async (req, res) => {
 
 export const validateEmailCtrl = async (req, res) => {
   const { token } = req.query; // paso 1
-  console.log("holaa");
 
   const db = req.app.locals.ddbbClient.db(DATABASE_NAME);
   const tokens = db.collection(COLLECTION_NAME);
   const tokenInfo = await tokens.findOne({ token }); // paso 2
   if (tokenInfo !== null) {
     // existe token
-    console.log("holaa");
     await tokens.deleteOne({ token }); // paso 3
 
     const users = db.collection(COLLECTION_USERS);

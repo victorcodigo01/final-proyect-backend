@@ -319,7 +319,7 @@ export const sendValidationEmail = async (to, url) => {
 // }
 
 // async function stop(){
-//     console.log('Estás cerrando el servidor');
+//     log('Estás cerrando el servidor');
 //     await client.close(); // cerramos al conexión con la BBDD
 // }
 
