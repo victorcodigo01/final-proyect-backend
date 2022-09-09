@@ -23,18 +23,20 @@ const COLLECTION_EMOTIONS_MANAGE = "emotions-manage";
  */
 export const registerCtrl = async (req, res) => {
   try {
-    const user = await getUserByEmailNoStatus(req.body.email);
+    console.log("mensaje de prueba");
+    console.log(req.body);
+    const user = await getUserByEmailNoStatus(req.body.user.email);
     if (user === null) {
-      req.body.password = encodePassword(req.body.password);
-      await createUser({ ...req.body, status: "PENDING_VALIDATION" }); // paso 2
+      req.body.user.password = encodePassword(req.body.user.password);
+      await createUser({ ...req.body.user, status: "PENDING_VALIDATION" }); // paso 2
       // paso 3
       const token = generateValidationToken();
-      await createValidationToken(token, req.body.email);
+      await createValidationToken(token, req.body.user.email);
       // paso 4
       //ojo que el host es el de nuestra aplicación de react
       sendValidationEmail(
-        req.body.email,
-        `http://localhost:3000/validate?token=${token}`
+        req.body.user.email,
+        `${req.body.to}/validate?token=${token}`
       );
       res.sendStatus(201);
     } else {
