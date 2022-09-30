@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.route("/").get(getEmotionsManageInfo);
 
-router.route("/create").post(createEmotionManage);
+router.route("/create").post(createEmotionManage); //asocias una ruta con una funcion
 
 router.route("/:_id").delete(deleteEmocion);
 
