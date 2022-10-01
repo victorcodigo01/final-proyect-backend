@@ -21,7 +21,8 @@ export const createEmotionManage = async (req, res) => {
   if (emotion.url == "") delete emotion.url;
   console.log(emotion);
   const result = await col.insertOne(emotion); // inserto el user en la collection
-  res.json(result); // devuelvo el resultado al cliente
+  emotion._id = result.insertedId; // añado el id al user
+  res.json(emotion); // devuelvo el resultado al cliente
 };
 
 export const deleteEmocion = async (req, res) => {
